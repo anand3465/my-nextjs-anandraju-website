@@ -110,6 +110,7 @@ const PROJECTS = [
       "Implemented efficient LINQ queries for filtering by openings and strategies.",
       "Optimized query paths for performance on large datasets.",
     ],
+    links: [{ label: "Repo", href: "https://github.com/YOUR_GITHUB_HANDLE/fitness-rpg" }]
   },
   {
     title: "Korean Teaching Application",
@@ -122,6 +123,7 @@ const PROJECTS = [
       "Used Box2D for real-time feedback and motion-based gameplay.",
       "Structured the app using MVC for maintainability.",
     ],
+    links: [{ label: "Repo", href: "https://github.com/YOUR_GITHUB_HANDLE/fitness-rpg" }]
   },
   {
     title: "Agar.io Multiplayer Clone",
@@ -134,6 +136,7 @@ const PROJECTS = [
       "Designed responsive UI and smooth visual effects.",
       "Applied OOP principles to manage game state and entities.",
     ],
+    links: [{ label: "Repo", href: "https://github.com/YOUR_GITHUB_HANDLE/fitness-rpg" }]
   },
   {
     title: "Step-Tracking Mobile RPG",
@@ -146,6 +149,7 @@ const PROJECTS = [
       "Implemented persistent game state and progression tracking.",
       "Balanced gameplay loops to encourage consistent movement.",
     ],
+    links: [{ label: "Repo", href: "https://github.com/YOUR_GITHUB_HANDLE/fitness-rpg" }]
   },
   {
     title: "Anime Tower Defense Game",
@@ -158,9 +162,9 @@ const PROJECTS = [
       "Built enemy wave logic and difficulty progression.",
       "Structured systems using object-oriented design.",
     ],
+    links: [{ label: "Repo", href: "https://github.com/YOUR_GITHUB_HANDLE/fitness-rpg" }]
   },
 ];
-
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
