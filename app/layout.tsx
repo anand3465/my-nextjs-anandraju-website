@@ -22,7 +22,7 @@ export default function RootLayout({
               <a href="/projects">Projects</a>
               <a href="/experience">Experience</a>
               <a href="/about">About</a>
-              <a href="/resume.pdf" target="_blank">Resume</a>
+              <a href="/Anand_Raju_Palukuri_Resume.pdf" target="_blank">Resume</a>
             </div>
           </nav>
         </header>
