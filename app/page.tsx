@@ -16,13 +16,13 @@ export default function Home() {
       {/* Text — RIGHT */}
       <div className="space-y-6">
         <h1 className="text-4xl font-semibold tracking-tight">
-          Hi, I’m Anand 👋
+          Hi, I’m Anand 
         </h1>
 
         <p className="max-w-2xl leading-7 text-zinc-400">
           I’m Anand Palukuri, a systems-minded software engineer who enjoys building
           software that behaves predictably in the real world. I’ve spent much of my
-          time working on systems where correctness matters more than convenience—
+          time working on systems where correctness matters more than convenience,
           coordinating state across components, handling repeated or partial failures,
           and designing workflows that continue to work under real usage.
         </p>
