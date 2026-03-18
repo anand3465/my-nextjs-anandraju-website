@@ -14,7 +14,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-zinc-50 text-zinc-900 dark:bg-black dark:text-zinc-50">
         <header className="sticky top-0 z-50 border-b border-black/10 bg-white/70 backdrop-blur dark:border-white/10 dark:bg-zinc-950/70">
-          <nav className="mx-auto flex max-w-7xl items-center justify-between px-0 py-4">
+          <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
             <a href="/" className="font-semibold">
               Anand Palukuri
             </a>
@@ -27,12 +27,12 @@ export default function RootLayout({
           </nav>
         </header>
 
-        <main className="mx-auto max-w-7xl px-0 py-17">
+        <main className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
           {children}
         </main>
 
         <footer className="mt-24 border-t border-black/10 py-8 text-sm dark:border-white/10">
-          <div className="mx-auto flex max-w-7xl flex-col gap-4 px-0 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 sm:flex-row sm:items-center sm:justify-between lg:px-8">
             <p className="text-zinc-500 dark:text-zinc-400">
               © {new Date().getFullYear()} Anand Palukuri
             </p>

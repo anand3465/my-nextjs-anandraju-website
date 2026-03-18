@@ -34,11 +34,12 @@ test('should have links that take me to the right pages', async ({page}) => {
   const response = await page.goto('/');
   await expect(response?.status()).toBe(200);
 
+  await expect(page).toHaveURL('http://localhost:3000/');
   const header = page.locator('header');
   
   // Capture response after clicking the link
   const [navigationResponse] = await Promise.all([
-    page.waitForResponse(response => response.url().includes('/projects')),
+    page.waitForResponse(response => response.url().includes('/projects') && response.status() === 200),
     header.getByRole('link', { name: 'Projects' }).click(),
   ]);
   
