@@ -1,374 +1,108 @@
-// app/page.tsx (or wherever your page.tsx lives)
 import Image from "next/image";
 
-type Project = {
-  title: string;
-  description: string;
-  stack: string[];
-  highlights: string[];
-  links: { label: string; href: string }[];
-};
-
-const PROFILE = {
-  name: "Anand Raju Palukuri",
-  role: "Full-Stack Developer • ML/Systems",
-  blurb:
-    "I build reliable, data-driven products—full-stack apps, ML pipelines, and systems that hold up under real-world constraints.",
-  location: "Salt Lake City, UT",
-  email: "anandraju.palukuri@email.com",
-  github: "https://github.com/anand3465",
-  linkedin: "https://www.linkedin.com/in/anand-palukuri-208992255",
-  resume: "/Anand_Raju_Palukuri_Resume.pdf", 
-};
-
-const PROJECTS: Project[] = [
+const projects = [
   {
-    title: "G-Share — Community Grocery Sharing Platform",
-    description:
-      "A full-stack web app for group carts, shared orders, and real-time location-based matching.",
-    stack: ["Django", "MySQL", "AWS S3", "Google Maps API", "Tailwind"],
-    highlights: [
-      "Built modular backend APIs and transactional workflows for group ordering.",
-      "Integrated receipt image parsing + review flow to correct AI-extracted data.",
-      "Optimized queries and data access patterns for scale and responsiveness.",
-    ],
-    links: [
-      { label: "Repo", href: "https://github.com/yourhandle/g-share" },
-      { label: "Demo", href: "https://your-demo-link.com" },
-    ],
+    title: "G-Share",
+    description: "Community grocery-sharing platform with full-stack workflows.",
+  },
+  {
+    title: "Chess Search Engine",
+    description: "SQL + C# search-driven engine for exploring chess game data.",
   },
   {
     title: "Android Malware Detection",
-    description:
-      "ML pipeline to classify Android apps as malicious using system-call features.",
-    stack: ["Python", "NumPy", "SVM/LogReg", "Custom Ensembles"],
-    highlights: [
-      "Implemented models and evaluation tooling with reproducible experiments.",
-      "Explored ensemble approaches to improve robustness and generalization.",
-    ],
-    links: [{ label: "Repo", href: "https://github.com/yourhandle/malware-ml" }],
-  },
-  {
-    title: "Contract Generation Desktop App",
-    description:
-      "Desktop tool to generate contracts from templates, export DOCX/PDF, and validate fields.",
-    stack: [".NET", "C#", "MAUI", "DOCX/PDF"],
-    highlights: [
-      "Built template parsing + export flow for consistent, low-error generation.",
-      "Added validations and structured inputs to prevent malformed documents.",
-    ],
-    links: [{ label: "Case Study", href: "https://your-site.com/contracts" }],
+    description: "Machine learning pipeline for malicious app classification.",
   },
 ];
 
-function Pill({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-flex items-center rounded-full border border-black/10 bg-white px-3 py-1 text-sm text-zinc-700 shadow-sm dark:border-white/10 dark:bg-zinc-950 dark:text-zinc-300">
-      {children}
-    </span>
-  );
-}
-
-function SectionTitle({
-  eyebrow,
-  title,
-  subtitle,
-}: {
-  eyebrow: string;
-  title: string;
-  subtitle?: string;
-}) {
-  return (
-    <div className="mb-6">
-      <p className="text-xs font-semibold tracking-widest text-zinc-500 dark:text-zinc-400">
-        {eyebrow.toUpperCase()}
-      </p>
-      <h2 className="mt-2 text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
-        {title}
-      </h2>
-      {subtitle ? (
-        <p className="mt-2 max-w-2xl text-base leading-7 text-zinc-600 dark:text-zinc-400">
-          {subtitle}
-        </p>
-      ) : null}
-    </div>
-  );
-}
-
 export default function Home() {
   return (
-    <div className="min-h-screen bg-zinc-50 text-zinc-900 dark:bg-black dark:text-zinc-50">
-      {/* Background glow */}
-      <div className="pointer-events-none fixed inset-0 -z-10">
-        <div className="absolute left-1/2 top-[-12rem] h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-zinc-200/60 blur-3xl dark:bg-zinc-900/60" />
-      </div>
-
-      <header className="mx-auto w-full max-w-5xl px-6 pt-10">
-        <nav className="flex items-center justify-between rounded-2xl border border-black/10 bg-white/70 px-4 py-3 shadow-sm backdrop-blur dark:border-white/10 dark:bg-zinc-950/60">
-          <div className="flex items-center gap-3">
-            <div className="grid h-9 w-9 place-items-center rounded-xl border border-black/10 bg-zinc-50 font-semibold dark:border-white/10 dark:bg-zinc-900">
-              {PROFILE.name.slice(0, 1).toUpperCase()}
-            </div>
-            <div className="leading-tight">
-              <p className="text-sm font-semibold">{PROFILE.name}</p>
-              <p className="text-xs text-zinc-600 dark:text-zinc-400">
-                {PROFILE.role}
-              </p>
-            </div>
+    <section className="space-y-24">
+      {/* Hero */}
+      <section className="grid items-center gap-12 md:grid-cols-[280px_1fr]">
+        <div className="relative mx-auto">
+          <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-tr from-zinc-300/40 via-zinc-200/20 to-transparent blur-3xl dark:from-zinc-700/30 dark:via-zinc-600/10 animate-pulse" />
+          <div className="animate-float relative h-56 w-56 overflow-hidden rounded-[2rem] border border-black/10 shadow-2xl dark:border-white/10">
+            <Image
+              src="/headshot.jpg"
+              alt="Anand Palukuri"
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
+        </div>
 
-          <div className="hidden items-center gap-5 text-sm sm:flex">
-            <a className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50" href="#projects">
-              Projects
-            </a>
-            <a className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50" href="#about">
-              About
-            </a>
-            <a className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50" href="#contact">
-              Contact
-            </a>
-          </div>
+        <div className="space-y-6 animate-fade-up">
+          <p className="inline-flex rounded-full border border-black/10 bg-white px-4 py-1 text-sm text-zinc-600 shadow-sm dark:border-white/10 dark:bg-zinc-900 dark:text-zinc-300">
+            Full-Stack Developer • Systems • ML
+          </p>
 
-          <div className="flex items-center gap-2">
+          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
+            Hi, I’m <span className="gradient-text">Anand</span> 
+          </h1>
+
+          <p className="max-w-2xl text-lg leading-8 text-zinc-600 dark:text-zinc-300">
+            I’m a systems-minded software engineer who enjoys building software
+            that behaves predictably in the real world. I care about correctness,
+            reliability, and designing workflows that continue to work under real usage.
+          </p>
+
+          <p className="max-w-2xl text-lg leading-8 text-zinc-600 dark:text-zinc-300">
+            I’m especially drawn to long-term architecture trade-offs, debugging
+            subtle issues, and improving performance until the system feels solid.
+          </p>
+
+          <div className="flex flex-wrap gap-4 pt-2">
             <a
-              className="rounded-xl border border-black/10 bg-white px-3 py-2 text-sm font-medium text-zinc-800 shadow-sm hover:bg-zinc-50 dark:border-white/10 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-zinc-900"
-              href={PROFILE.resume}
+              href="/projects"
+              className="group inline-flex items-center rounded-2xl bg-zinc-900 px-6 py-3 text-white transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-white dark:text-black"
+            >
+              View All Projects
+              <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+            </a>
+
+            <a
+              href="/Anand_Raju_Palukuri_Resume.pdf"
+              target="_blank"
+              className="inline-flex items-center rounded-2xl border border-black/10 bg-white px-6 py-3 text-zinc-800 transition duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-zinc-900 dark:text-zinc-100"
             >
               Resume
             </a>
-            <a
-              className="rounded-xl bg-zinc-900 px-3 py-2 text-sm font-medium text-white shadow-sm hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
-              href={`mailto:${PROFILE.email}`}
-            >
-              Email
-            </a>
           </div>
-        </nav>
-      </header>
+        </div>
+      </section>
 
-      <main className="mx-auto w-full max-w-5xl px-6 pb-24 pt-10">
-        {/* Hero */}
-        <section className="mt-8 grid gap-8 md:grid-cols-5 md:items-center">
-          <div className="md:col-span-3">
-            <p className="inline-flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400">
-              <span className="h-2 w-2 rounded-full bg-emerald-500" />
-              Available for internships / new grad / contracts
+      {/* Featured Projects */}
+      <section className="animate-fade-up [animation-delay:150ms]">
+        <div className="mb-8 flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-semibold sm:text-3xl">Featured Projects</h2>
+            <p className="mt-2 text-zinc-600 dark:text-zinc-400">
+              A few things I’ve built across systems, ML, and full-stack development.
             </p>
-
-            <h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-              I ship practical software —
-              <span className="text-zinc-500 dark:text-zinc-400">
-                {" "}
-                systems, full-stack apps, and ML tooling.
-              </span>
-            </h1>
-
-            <p className="mt-5 max-w-xl text-base leading-7 text-zinc-600 dark:text-zinc-400">
-              {PROFILE.blurb}
-            </p>
-
-            <div className="mt-6 flex flex-wrap gap-2">
-              <Pill>{PROFILE.location}</Pill>
-              <Pill>Backend • APIs • DB</Pill>
-              <Pill>ML • Data Pipelines</Pill>
-              <Pill>Cloud • AWS</Pill>
-            </div>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                className="rounded-2xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
-                href="#projects"
-              >
-                View projects
-              </a>
-              <a
-                className="rounded-2xl border border-black/10 bg-white px-5 py-3 text-sm font-semibold text-zinc-800 shadow-sm hover:bg-zinc-50 dark:border-white/10 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-zinc-900"
-                href={PROFILE.github}
-                target="_blank"
-                rel="noreferrer"
-              >
-                GitHub
-              </a>
-              <a
-                className="rounded-2xl border border-black/10 bg-white px-5 py-3 text-sm font-semibold text-zinc-800 shadow-sm hover:bg-zinc-50 dark:border-white/10 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-zinc-900"
-                href={PROFILE.linkedin}
-                target="_blank"
-                rel="noreferrer"
-              >
-                LinkedIn
-              </a>
-            </div>
           </div>
+        </div>
 
-          <div className="md:col-span-2">
-            <div className="relative overflow-hidden rounded-3xl border border-black/10 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-950">
-              <div className="flex items-center gap-4">
-                <div className="relative h-14 w-14 overflow-hidden rounded-2xl border border-black/10 bg-zinc-100 dark:border-white/10 dark:bg-zinc-900">
-                  <Image
-                    src="/headshot.jpg"
-                    alt="Headshot"
-                    fill
-                    className="object-cover"
-                    sizes="56px"
-                  />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold">{PROFILE.name}</p>
-                  <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                    {PROFILE.role}
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-6 grid gap-3">
-                <div className="rounded-2xl border border-black/10 bg-zinc-50 p-4 dark:border-white/10 dark:bg-zinc-900/40">
-                  <p className="text-xs font-semibold text-zinc-500 dark:text-zinc-400">
-                    CURRENT FOCUS
-                  </p>
-                  <p className="mt-1 text-sm text-zinc-700 dark:text-zinc-300">
-                    Building scalable backends + polishing product UX.
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-black/10 bg-zinc-50 p-4 dark:border-white/10 dark:bg-zinc-900/40">
-                  <p className="text-xs font-semibold text-zinc-500 dark:text-zinc-400">
-                    TOOLBOX
-                  </p>
-                  <p className="mt-1 text-sm text-zinc-700 dark:text-zinc-300">
-                    Django, Next.js, MySQL, AWS, Python, C/C#
-                  </p>
-                </div>
+        <div className="grid gap-6 md:grid-cols-3">
+          {projects.map((project) => (
+            <div
+              key={project.title}
+              className="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:border-white/10 dark:bg-zinc-900/70"
+            >
+              <h3 className="text-xl font-semibold">{project.title}</h3>
+              <p className="mt-3 leading-7 text-zinc-600 dark:text-zinc-400">
+                {project.description}
+              </p>
+              <div className="mt-6 text-sm font-medium text-zinc-500 transition duration-300 group-hover:text-zinc-900 dark:text-zinc-400 dark:group-hover:text-white">
+                Explore more →
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Projects */}
-        <section id="projects" className="mt-20">
-          <SectionTitle
-            eyebrow="Projects"
-            title="Things I’ve built"
-            subtitle="A few highlights. Each project focuses on real constraints: correctness, performance, and usability."
-          />
-
-          <div className="grid gap-6 md:grid-cols-2">
-            {PROJECTS.map((p) => (
-              <div
-                key={p.title}
-                className="rounded-3xl border border-black/10 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-white/10 dark:bg-zinc-950"
-              >
-                <h3 className="text-lg font-semibold tracking-tight">{p.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-                  {p.description}
-                </p>
-
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {p.stack.map((s) => (
-                    <Pill key={s}>{s}</Pill>
-                  ))}
-                </div>
-
-                <ul className="mt-5 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
-                  {p.highlights.map((h) => (
-                    <li key={h} className="flex gap-2">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-400 dark:bg-zinc-600" />
-                      <span>{h}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-6 flex flex-wrap gap-3">
-                  {p.links.map((l) => (
-                    <a
-                      key={l.href}
-                      className="rounded-2xl border border-black/10 bg-white px-4 py-2 text-sm font-semibold text-zinc-800 shadow-sm hover:bg-zinc-50 dark:border-white/10 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-zinc-900"
-                      href={l.href}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {l.label}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* About */}
-        <section id="about" className="mt-20">
-          <SectionTitle
-            eyebrow="About"
-            title="How I work"
-            subtitle="I like building systems that are easy to reason about: clear interfaces, sane data models, and predictable failure modes."
-          />
-
-          <div className="grid gap-6 md:grid-cols-3">
-            {[
-              {
-                title: "Engineering mindset",
-                body: "I design around constraints early: data integrity, latency, observability, and operational costs.",
-              },
-              {
-                title: "Product-minded",
-                body: "I care about UX details—fast feedback loops, readable UI states, and smooth “happy path” flows.",
-              },
-              {
-                title: "Systems + ML",
-                body: "I enjoy bridging ML and production: pipelines, evaluation, and practical deployment trade-offs.",
-              },
-            ].map((c) => (
-              <div
-                key={c.title}
-                className="rounded-3xl border border-black/10 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-950"
-              >
-                <h3 className="text-base font-semibold">{c.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-                  {c.body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Contact */}
-        <section id="contact" className="mt-20">
-          <SectionTitle
-            eyebrow="Contact"
-            title="Let’s talk"
-            subtitle="Email is best. If you include a role + what you’re building, I’ll respond faster."
-          />
-
-          <div className="flex flex-wrap gap-3">
-            <a
-              className="rounded-2xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
-              href={`mailto:${PROFILE.email}`}
-            >
-              {PROFILE.email}
-            </a>
-            <a
-              className="rounded-2xl border border-black/10 bg-white px-5 py-3 text-sm font-semibold text-zinc-800 shadow-sm hover:bg-zinc-50 dark:border-white/10 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-zinc-900"
-              href={PROFILE.github}
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
-            <a
-              className="rounded-2xl border border-black/10 bg-white px-5 py-3 text-sm font-semibold text-zinc-800 shadow-sm hover:bg-zinc-50 dark:border-white/10 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-zinc-900"
-              href={PROFILE.linkedin}
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn
-            </a>
-          </div>
-
-          <footer className="mt-10 border-t border-black/10 pt-6 text-sm text-zinc-500 dark:border-white/10 dark:text-zinc-400">
-            © {new Date().getFullYear()} {PROFILE.name}. Built with Next.js.
-          </footer>
-        </section>
-      </main>
-    </div>
+          ))}
+        </div>
+      </section>
+    </section>
   );
 }
