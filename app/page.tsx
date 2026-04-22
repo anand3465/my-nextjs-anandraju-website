@@ -39,7 +39,7 @@ export default function Home() {
           </p>
 
           <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
-            Hi, I’m <span className="gradient-text">Anand</span> 👋
+            Hi, I’m <span className="gradient-text">Anand</span> 
           </h1>
 
           <p className="max-w-2xl text-lg leading-8 text-zinc-600 dark:text-zinc-300">

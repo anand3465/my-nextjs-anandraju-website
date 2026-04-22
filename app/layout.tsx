@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
   title: "Anand Palukuri",
@@ -34,6 +35,7 @@ export default function RootLayout({
 
           <main className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
             {children}
+            <Analytics />
           </main>
 
           <footer className="mt-24 border-t border-black/10 py-8 text-sm dark:border-white/10">
