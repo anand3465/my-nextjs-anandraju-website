@@ -1,7 +1,8 @@
+import type { Metadata } from "next";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Anand Palukuri",
   description: "Full-Stack Developer • Systems & ML",
 };

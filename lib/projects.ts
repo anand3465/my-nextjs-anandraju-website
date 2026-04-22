@@ -11,7 +11,7 @@ export type Project = {
 export const PROJECTS: Project[] = [
   {
     slug: "g-share",
-    title: "G-Share — Community Grocery-Sharing Platform",
+    title: "G-Share: Community Grocery-Sharing Platform",
     featured: true,
     description:
       "A full-stack platform for group carts, shared orders, location-based matching, and delivery tracking.",
@@ -29,7 +29,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "android-malware-detection",
-    title: "Android Malware Detection — ML Pipeline",
+    title: "Android Malware Detection: ML Pipeline",
     featured: true,
     description:
       "A machine learning pipeline that classifies Android apps using dynamic system-call features.",
@@ -40,20 +40,6 @@ export const PROJECTS: Project[] = [
       "Focused on robustness and interpretability when combining models.",
     ],
     links: [{ label: "Repo", href: "https://github.com/YOUR_GITHUB_HANDLE/android-malware-ml" }],
-  },
-  {
-    slug: "contract-generation-system",
-    title: "Contract Generation System",
-    description:
-      "A contract-generation app that parses DOCX, supports live editing, and exports to PDF/Word.",
-    stack: ["C#", ".NET MAUI", "DOCX parsing", "React", "WCAG"],
-    highlights: [
-      "Designed and deployed a user-centered contract workflow: parse → template → edit → export.",
-      "Built WCAG-compliant React UIs for contract management and multi-party editing workflows.",
-      "Researched and integrated 32+ APIs for document automation and improved production reliability.",
-      "Used iterative testing + sprint reviews to reduce QA cycles by ~30%.",
-    ],
-    links: [{ label: "Case Study", href: "https://YOUR_SITE.com/contracts" }],
   },
   {
     slug: "startup-visualization-dashboard",
